@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { routes } from "../router/routes";
 
 export default function Navbar() {
   return (
@@ -9,19 +10,19 @@ export default function Navbar() {
             <Link className="nav-logo" to="/">
               <img src="/vite.svg" alt="company-logo" />
             </Link>
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to={routes.home}>
               Home
             </Link>
-            <Link className="nav-link" to="/services">
+            <Link className="nav-link" to={routes.services}>
               Services
             </Link>
-            <Link className="nav-link" to="/about-us">
+            <Link className="nav-link" to={routes.aboutUs}>
               About Us
             </Link>
           </div>
         </div>
         <div>
-          <Link className="nav-button" to="/login">
+          <Link className="nav-button" to={routes.login}>
             Login/Sign Up
           </Link>
         </div>

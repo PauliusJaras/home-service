@@ -6,6 +6,7 @@ import Navbar from "./components/navbar";
 import "./App.scss";
 import Home from "./pages/home";
 import LoginPage from "./pages/loginPage";
+import { routes } from "./router/routes";
 
 const Root = () => {
   return (
@@ -23,19 +24,19 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "",
+        path: routes.home,
         element: <Home />,
       },
       {
-        path: "services",
+        path: routes.services,
         element: <ServicesPage />,
       },
       {
-        path: "about-us",
+        path: routes.aboutUs,
         element: <AboutUsPage />,
       },
       {
-        path: "login",
+        path: routes.login,
         element: <LoginPage />,
       },
     ],
