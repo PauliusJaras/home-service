@@ -10,7 +10,7 @@ export default function ServiceCard({ data }) {
   });
 
   return (
-    <Link to={routes.search + (link || "/cleaning")} className="service-card">
+    <Link to={categoryPath} className="service-card">
       <img src={imgUrl || "/cleaning.jpg"} alt={imgAlt || "cleaning lady"} />
       <div>
         <p className="category-label">{label || "Cleaning"}</p>
