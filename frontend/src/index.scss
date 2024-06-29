@@ -9,7 +9,9 @@
   --secondary-font-color: white;
   --gray-color: #ababae;
   --white-color: white;
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --regular-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --purple-shadow: 0 25px 50px -12px rgba(38, 0, 128, 0.815);
 }
 
 html {
@@ -43,7 +45,7 @@ nav {
   width: 100vw;
   top: 0px;
   left: 0;
-  box-shadow: var(--shadow);
+  box-shadow: var(--regular-shadow);
   display: flex;
   justify-content: center;
   padding: 40px 0;
@@ -205,7 +207,7 @@ h6 {
   max-width: 500px;
   border-radius: 5px;
   padding-bottom: 8px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--regular-shadow);
 
   .category-label {
     display: inline-block;
@@ -236,4 +238,11 @@ h6 {
     padding-left: 0.4rem;
     padding-bottom: 1rem;
   }
+}
+
+.service-card:hover {
+  transform: scale(1.02);
+  cursor: pointer;
+  opacity: 1;
+  box-shadow: var(--purple-shadow);
 }

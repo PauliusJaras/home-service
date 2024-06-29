@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 export default function ServiceCard({ data }) {
   const { imgUrl, imgAlt, label, title, provider, address, link } = data || {};
   return (
-    <div className="service-card">
+    <Link to={routes.search + (link || "/cleaning")} className="service-card">
       <img src={imgUrl || "/cleaning.jpg"} alt={imgAlt || "cleaning lady"} />
       <div>
         <p className="category-label">{label || "Cleaning"}</p>
@@ -19,7 +19,7 @@ export default function ServiceCard({ data }) {
           Book Now
         </Link>
       </div>
-    </div>
+    </Link>
   );
 }
 
