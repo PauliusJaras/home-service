@@ -2,25 +2,21 @@ import { RouterProvider, Outlet, createBrowserRouter } from "react-router-dom";
 import ServicesPage from "./pages/servicesPage";
 import ErrorPage from "./pages/errorPage";
 import AboutUsPage from "./pages/aboutUsPage";
-import Navbar from "./components/navbar";
 import "./App.scss";
 import Home from "./pages/home";
 import LoginPage from "./pages/loginPage";
 import { routes } from "./router/routes";
-
-const Root = () => {
-  return (
-    <>
-      <Navbar />
-      <Outlet />
-    </>
-  );
-};
+import RootLayout from "./components/layout/rootLayout";
+import CategoryPage from "./pages/categoryPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: (
+      <RootLayout>
+        <Outlet />
+      </RootLayout>
+    ),
     errorElement: <ErrorPage />,
     children: [
       {
@@ -38,6 +34,10 @@ const router = createBrowserRouter([
       {
         path: routes.login,
         element: <LoginPage />,
+      },
+      {
+        path: routes.search_category,
+        element: <CategoryPage />,
       },
     ],
   },

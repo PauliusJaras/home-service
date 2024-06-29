@@ -3,5 +3,5 @@ export const routes = {
 	services: 'services',
 	aboutUs: 'about-us',
 	login: 'login',
-
+	search_category: 'search/:category',
 }
