@@ -22,7 +22,7 @@ export default function Navbar() {
           </div>
         </div>
         <div>
-          <Link className="nav-button" to={routes.login}>
+          <Link className="main-button" to={routes.login}>
             Login/Sign Up
           </Link>
         </div>
