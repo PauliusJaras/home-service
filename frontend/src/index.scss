@@ -50,6 +50,7 @@ nav {
   justify-content: center;
   padding: 40px 0;
   background-color: var(--white-color);
+  z-index: 10;
 
   .nav-container {
     display: flex;
