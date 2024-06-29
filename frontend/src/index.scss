@@ -137,6 +137,14 @@ h6 {
   gap: 3rem;
 }
 
+.category-container {
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  gap: 3rem;
+}
+
 .search-container {
   display: flex;
   gap: 20px;
@@ -246,4 +254,19 @@ h6 {
   cursor: pointer;
   opacity: 1;
   box-shadow: var(--purple-shadow);
+}
+
+.label-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  .category-list {
+    flex-direction: column;
+  }
+
+  .category-card {
+    flex-direction: row;
+    gap: 1rem;
+  }
 }

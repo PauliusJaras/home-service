@@ -7,7 +7,7 @@ export const data = [
 		title: "House Cleaning",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/cleaning",
+		link: "/Cleaning",
 	},
 	{
 		id: 2,
@@ -27,7 +27,7 @@ export const data = [
 		title: "Painting Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/painting",
+		link: "/Painting",
 	},
 	{
 		id: 4,
@@ -37,7 +37,7 @@ export const data = [
 		title: "Shifting Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/shifting",
+		link: "/Shifting",
 	},
 	{
 		id: 5,
@@ -47,7 +47,7 @@ export const data = [
 		title: "Plumbing Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/plumbing",
+		link: "/Plumbing",
 	},
 	{
 		id: 6,
@@ -57,7 +57,7 @@ export const data = [
 		title: "Electric Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/electric",
+		link: "/Electric",
 	},
 	{
 		id: 7,
@@ -67,7 +67,7 @@ export const data = [
 		title: "Random Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/random",
+		link: "/Random",
 	},
 	{
 		id: 8,
@@ -77,6 +77,6 @@ export const data = [
 		title: "Cleaning Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/cleaning",
+		link: "/Cleaning",
 	},
 ];
