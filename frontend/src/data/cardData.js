@@ -17,7 +17,7 @@ export const data = [
 		title: "Repair Services",
 		provider: "Name Surname",
 		address: "Real address 1-2-3",
-		link: "/repair",
+		link: "/Repair",
 	},
 	{
 		id: 3,
