@@ -8,8 +8,8 @@ export default function ServiceList() {
     <div>
       <h4>Popular Business</h4>
       <div className="service-list">
-        {cardData.map((data, index) => {
-          return <ServiceCard key={index} data={data} />;
+        {cardData.map((data) => {
+          return <ServiceCard key={data.id} data={data} />;
         })}
       </div>
     </div>

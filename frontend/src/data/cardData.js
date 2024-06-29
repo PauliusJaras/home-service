@@ -1,5 +1,6 @@
 export const data = [
 	{
+		id: 1,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Cleaning",
 		label: "Cleaning",
@@ -9,6 +10,7 @@ export const data = [
 		link: "/cleaning",
 	},
 	{
+		id: 2,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Repair",
 		label: "Repair",
@@ -18,6 +20,7 @@ export const data = [
 		link: "/repair",
 	},
 	{
+		id: 3,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Painting",
 		label: "Painting",
@@ -27,6 +30,7 @@ export const data = [
 		link: "/painting",
 	},
 	{
+		id: 4,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Shifting",
 		label: "Shifting",
@@ -36,6 +40,7 @@ export const data = [
 		link: "/shifting",
 	},
 	{
+		id: 5,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Plumbing",
 		label: "Plumbing",
@@ -45,6 +50,7 @@ export const data = [
 		link: "/plumbing",
 	},
 	{
+		id: 6,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Electric",
 		label: "Electric",
@@ -54,6 +60,7 @@ export const data = [
 		link: "/electric",
 	},
 	{
+		id: 7,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Random",
 		label: "Random",
@@ -63,6 +70,7 @@ export const data = [
 		link: "/random",
 	},
 	{
+		id: 8,
 		imgUrl: "/cleaning.jpg",
 		imgAlt: "Cleaning",
 		label: "Cleaning",
