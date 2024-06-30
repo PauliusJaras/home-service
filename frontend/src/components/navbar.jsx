@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import { routes } from "../router/routes";
+import Avatar from "./avatar";
+import { useContext } from "react";
+import { UserContext } from "../context/UserContext";
 
 export default function Navbar() {
+  const { user, logout } = useContext(UserContext);
+  const name = user?.username;
+
   return (
     <nav>
       <div className="nav-container">
@@ -22,9 +28,19 @@ export default function Navbar() {
           </div>
         </div>
         <div>
-          <Link className="main-button" to={routes.login}>
-            Login/Sign Up
-          </Link>
+          {user && (
+            <div className="flex">
+              <Avatar name={name} />
+              <button onClick={logout} className="main-button">
+                Logout
+              </button>
+            </div>
+          )}
+          {!user && (
+            <Link className="main-button" to={routes.login}>
+              Login/Sign Up
+            </Link>
+          )}
         </div>
       </div>
     </nav>

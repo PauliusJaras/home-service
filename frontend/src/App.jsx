@@ -9,6 +9,7 @@ import { routes } from "./router/routes";
 import RootLayout from "./components/layout/rootLayout";
 import CategoryPage from "./pages/categoryPage";
 import RegisterPage from "./pages/register/registerPage";
+import { UserProvider } from "./context/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,11 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
+  );
 };
 
 export default App;

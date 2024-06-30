@@ -344,3 +344,20 @@ button {
 button:hover {
   opacity: 80%;
 }
+
+.avatar {
+  color: var(--white-color);
+  font-weight: medium;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3rem;
+  width: 3rem;
+  border-radius: 50%;
+  background-color: var(--purple-color);
+}
+
+.flex {
+  display: flex;
+  gap: 0.4rem;
+}
