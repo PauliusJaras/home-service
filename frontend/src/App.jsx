@@ -4,11 +4,11 @@ import ErrorPage from "./pages/errorPage";
 import AboutUsPage from "./pages/aboutUsPage";
 import "./App.scss";
 import Home from "./pages/home";
-import LoginPage from "./pages/loginPage";
+import LoginPage from "./pages/login/loginPage";
 import { routes } from "./router/routes";
 import RootLayout from "./components/layout/rootLayout";
 import CategoryPage from "./pages/categoryPage";
-import RegisterPage from "./pages/registerPage";
+import RegisterPage from "./pages/register/registerPage";
 
 const router = createBrowserRouter([
   {

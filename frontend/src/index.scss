@@ -95,6 +95,15 @@ main {
   }
 }
 
+.login,
+.register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink-color);
+  height: calc(100vh - 119px);
+}
+
 header {
   min-height: 60vh;
   display: flex;
@@ -107,6 +116,11 @@ header {
 h1 {
   font-size: 3.2rem;
   line-height: 5rem;
+}
+
+h3 {
+  font-size: 2.2rem;
+  text-align: center;
 }
 
 h4 {
@@ -269,4 +283,64 @@ h6 {
     flex-direction: row;
     gap: 1rem;
   }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  background-color: var(--white-color);
+  min-width: 20vw;
+  min-height: 60vh;
+  padding: 1rem;
+  gap: 1rem;
+
+  a {
+    font-size: 1rem;
+    text-align: right;
+    color: var(--gray-color);
+  }
+}
+
+fieldset {
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  gap: 0.4rem;
+}
+
+label {
+  cursor: pointer;
+}
+
+input {
+  padding: 6px 12px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  appearance: none;
+  border-radius: 4px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  :focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+  }
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  opacity: 80%;
 }
