@@ -8,6 +8,7 @@ import LoginPage from "./pages/loginPage";
 import { routes } from "./router/routes";
 import RootLayout from "./components/layout/rootLayout";
 import CategoryPage from "./pages/categoryPage";
+import RegisterPage from "./pages/registerPage";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       {
         path: routes.login,
         element: <LoginPage />,
+      },
+      {
+        path: routes.register,
+        element: <RegisterPage />,
       },
       {
         path: routes.search_category,
