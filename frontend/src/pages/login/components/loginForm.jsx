@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { routes } from "../../router/routes";
+import { routes } from "../../../router/routes";
 import { useContext, useState } from "react";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../../context/UserContext";
 
 export default function LoginForm() {
   const navigate = useNavigate();
