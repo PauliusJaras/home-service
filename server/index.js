@@ -1,136 +1,125 @@
 const express = require('express');
-const cors = require('cors');
+const { connectToDb, PORT } = require('./db');
 const app = express();
+const Booking = require('./schemas/bookingSchema');
+const Business = require('./schemas/businessSchema');
+const Category = require('./schemas/categorySchema');
 app.use(express.json());
-app.use(cors());
-
-const categories = [
-
-]
-
-const businesses = [
-	{ id: 1, title: "Harry Potter", author: "J.K. Rowling", category: 'meow' },
-	{ id: 2, title: "Lord of the Rings", author: "J.R.R. Tolkien", category: 'test' },
-	{ id: 3, title: "Lord of the Rings 2", author: "J.R.R. Tolkien", category: 'test' }
-]
-
-const bookings = [
-
-]
 
 //categories
-app.get('/categories', (req, res) => {
-	res.status(200).json(categories);
+app.get('/categories', async (req, res) => {
+	try {
+		const categories = await Category.find();
+		res.json(categories);
+	} catch (err) {
+		res.status(500).json(err);
+	}
 });
 
-app.post('/categories', (req, res) => {
-	const newCategory = { id: categories.length + 1, ...req.body };
-	books.push(newCategory);
-	res.status(201).json(newCategory);
+app.post("/categories", async (req, res) => {
+	const newCategory = new Category(req.body);
+	try {
+		const savedCategory = await newCategory.save();
+		res.status(201).json(savedCategory);
+	} catch (err) {
+		res.status(400).json(err);
+	}
 });
 
 //businesses
-app.get('/businesses', (req, res) => {
-	res.status(200).json(businesses);
-});
+app.post("/businesses", async (req, res) => {
+	const business = req.body;
 
+	try {
+		const categoryExists = await Category.findOne({ name: business.category });
+		if (!categoryExists) {
+			return res
+				.status(400)
+				.json({
+					message: "Failed to add business: specified category does not exist.",
+				});
+		}
 
-app.get('/businesses/category/:category', (req, res) => {
+		const newBusiness = new Business(business);
 
-	const businessCategory = req.params.category;
-	const selectBusinesses = businesses.filter((business) => business.category === businessCategory);
-
-	if (selectBusinesses.length != 0) {
-		res.status(200).json(selectBusinesses);
-	} else {
-		res.status(404).send('Business with the specified Category not found');
+		const savedBusiness = await newBusiness.save();
+		res.status(201).json(savedBusiness);
+	} catch (err) {
+		res
+			.status(500)
+			.json({
+				message: "Server error while adding business.",
+				error: err.message,
+			});
 	}
 });
 
-
-app.get('/businesses/:id', (req, res) => {
-	const businessId = parseInt(req.params.id);
-	const selectBusiness = businesses.filter((business) => business.id === businessId);
-
-	if (selectBusiness.length != 0) {
-		res.status(200).json(selectBusiness);
-	} else {
-		res.status(404).send('Business with the specified ID not found');
+app.get("/businesses/category/:category", async (req, res) => {
+	try {
+		const filteredBusinesses = await Business.find({
+			category: req.params.category.toLowerCase(),
+		});
+		res.json(filteredBusinesses);
+	} catch (err) {
+		res
+			.status(500)
+			.json({ message: "Error fetching businesses by category", error: err });
 	}
 });
 
-app.post('/businesses', (req, res) => {
-	const newBusiness = { id: businesses.length + 1, ...req.body };
-	books.push(newBusiness);
-	res.status(201).json(newBusiness);
-});
-
-
-//reminder to update put structure
-app.put('/businesses/:id', (req, res) => {
-	const businessId = parseInt(req.params.id);
-	const { title, provider } = req.body;
-	const businessIndex = businesses.findIndex(business => business.id === businessId);
-
-	if (businessId !== -1) {
-		businessIndex[businessId] = { id: businessId, title, provider };
-		res.json(businesses[businessIndex]);
-	} else {
-		res.status(404).send('Business with the specified ID not found');
+app.get("/businesses/:id", async (req, res) => {
+	try {
+		const business = await Business.findById(req.params.id);
+		if (business) {
+			res.json(business);
+		} else {
+			res.status(404).send("Business not found");
+		}
+	} catch (err) {
+		res.status(500).json({ message: "Error fetching business", error: err });
 	}
 });
+
 
 //bookings
-app.get('/bookings/user/:email', (req, res) => {
-	res.status(200).json(bookings);
-});
-
-app.get('/bookings/user/:email', (req, res) => {
-
-	const email = req.params.email;
-	const selectBooking = bookings.filter((booking) => booking.email === email);
-
-	if (selectBooking.length != 0) {
-		res.status(200).json(selectBooking);
-	} else {
-		res.status(404).send('Booking with the specified email not found');
+app.post("/bookings", async (req, res) => {
+	try {
+		const newBooking = new Booking(req.body);
+		await newBooking.save();
+		res.status(201).json(newBooking);
+	} catch (err) {
+		res
+			.status(400)
+			.json({ message: "Error creating booking", error: err?.message ?? err });
 	}
 });
 
-
-//update logic later...
-app.get('/businesses/:businessId/bookings/date/:date', (req, res) => {
-
-	const businessId = parseInt(req.params.businessId);
-	const date = req.params.date;
-	const selectBooking = bookings.filter((booking) => booking.email === email);
-
-	if (selectBooking.length != 0) {
-		res.status(200).json(selectBooking);
-	} else {
-		res.status(404).send('Booking with the specified business id and date not found');
+app.get("/businesses/:businessId/bookings/date/:date", async (req, res) => {
+	try {
+		const slots = await Booking.find({
+			businessId: req.params.businessId,
+			date: new Date(req.params.date),
+		});
+		res.json(slots);
+	} catch (err) {
+		res.status(500).json({
+			message: "Error fetching bookings for the specified date and business",
+			error: err,
+		});
 	}
 });
 
-app.post('/bookings', (req, res) => {
-	const newBooking = { id: bookings.length + 1, ...req.body };
-	books.push(newBooking);
-	res.status(201).json(newBooking);
-});
-
-app.delete('/bookings/:id', (req, res) => {
-	const bookingId = parseInt(req.params.id);
-	const bookingToDelete = bookings.find(booking => booking.id === bookingId);
-	bookings = bookings.filter(booking => booking.id !== bookingId);
-
-	if (bookingToDelete) {
-		res.status(200).json(bookingToDelete);
-	} else {
-		res.status(404).send('Booking with the specified ID not found');
+app.get("/bookings/user/:email", async (req, res) => {
+	try {
+		const userBookings = await Booking.find({ userEmail: req.params.email });
+		res.json(userBookings);
+	} catch (err) {
+		res
+			.status(500)
+			.json({ message: "Error fetching bookings for the user", error: err });
 	}
 });
 
-
-app.listen(3000, () => {
-	console.log('Server listening on port 3000');
+connectToDb().then(() => {
+	app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 });
