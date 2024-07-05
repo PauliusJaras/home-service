@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
-import { routes } from "../../../router/routes";
 import { useContext, useState } from "react";
 import { UserContext } from "../../../context/UserContext";
+import { routes } from "../../../router/routes";
 
 export default function LoginForm() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function LoginForm() {
   };
 
   return (
-    <form action={handleSubmit} className="login-form">
+    <form onSubmit={handleSubmit} className="login-form">
       <h3>Login</h3>
       <fieldset>
         <label htmlFor="username">Username</label>

@@ -1,4 +1,6 @@
-export const routes = {
+import { IRoute } from "./Routes.types";
+
+export const routes:IRoute = {
 	home: '/',
 	services: '/services',
 	aboutUs: '/about-us',
