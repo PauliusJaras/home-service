@@ -17,10 +17,10 @@ const bookingSchema = new mongoose.Schema({
     type: String,
     required: [true, 'field is required.'], // Email is necessary for contact
     validate: {
-      validator: function (email) {
+      validator: function (email: string) {
         return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email);
       },
-      message: (props) => `${props.value} is not a valid email!`, // Custom message for invalid email
+      message: (props: any) => `${props.value} is not a valid email!`, // Custom message for invalid email
     },
   },
   userName: {
@@ -38,3 +38,4 @@ const bookingSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model('Booking', bookingSchema);
+export default bookingSchema;
