@@ -1,8 +1,8 @@
 import { Link, generatePath } from "react-router-dom";
+import { ICardData } from "../data/CardData.types";
 import { routes } from "../router/routes";
-import PropTypes from "prop-types";
 
-export default function ServiceCard({ data }) {
+export default function ServiceCard({ data }: { data: ICardData }) {
   const { imgUrl, imgAlt, label, title, provider, address, link } = data || {};
 
   const categoryPath = generatePath(routes.search_category, {
@@ -24,7 +24,3 @@ export default function ServiceCard({ data }) {
     </Link>
   );
 }
-
-ServiceCard.propTypes = {
-  data: PropTypes.object,
-};

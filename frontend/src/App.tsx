@@ -1,6 +1,6 @@
 import { RouterProvider, Outlet, createBrowserRouter } from "react-router-dom";
 import ServicesPage from "./pages/servicesPage";
-import ErrorPage from "./pages/errorPage";
+import ErrorPage from "./pages/errorPage.tsx";
 import AboutUsPage from "./pages/aboutUsPage";
 import "./App.scss";
 import Home from "./pages/home";

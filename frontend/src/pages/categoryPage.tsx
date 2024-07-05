@@ -3,9 +3,7 @@ import CategoryList from "../components/categoryList";
 import ServiceList from "../components/serviceList";
 
 export default function CategoryPage() {
-  const { category } = useParams();
-
-  console.log(category);
+  const { category } = useParams<string>();
 
   return (
     <main>

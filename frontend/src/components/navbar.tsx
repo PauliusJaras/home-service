@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import { routes } from "../router/routes";
 import Avatar from "./avatar";
 import { useContext } from "react";
+import { routes } from "../router/routes";
 import { UserContext } from "../context/UserContext";
 
 export default function Navbar() {
   const { user, logout } = useContext(UserContext);
-  const name = user?.username;
+  const name: string | null = user?.username || null;
 
   return (
     <nav>

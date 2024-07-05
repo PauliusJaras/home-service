@@ -1,8 +1,13 @@
-import PropTypes from "prop-types";
 import { Link, generatePath } from "react-router-dom";
+import { ReactNode } from "react";
 import { routes } from "../router/routes";
 
-export default function CategoryCard(props) {
+interface ICategoryCard {
+  title: string;
+  child: ReactNode;
+}
+
+export default function CategoryCard(props: ICategoryCard) {
   const categoryPath = generatePath(routes.search_category, {
     category: props.title || "Cleaning",
   });
@@ -14,8 +19,3 @@ export default function CategoryCard(props) {
     </Link>
   );
 }
-
-CategoryCard.propTypes = {
-  title: PropTypes.string,
-  child: PropTypes.element,
-};
